@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog - Jason Carter</title>
+  <meta name="description" content="Jason Carter's blog about web development" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body id="body">
+
+  <!-- navbar (same as index) -->
+  <div class="navbar">
+    <div class="logo">Jason Carter</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#testimonials">Testimonials</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#contact">Contact</a>
+
+    </div>
+    <button class="hamburger" onclick="openMenu()">&#9776;</button>
+  </div>
+
+  <!-- mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="closeMenu()">Home</a>
+    <a href="index.html#about" onclick="closeMenu()">About</a>
+    <a href="index.html#projects" onclick="closeMenu()">Projects</a>
+    <a href="index.html#skills" onclick="closeMenu()">Skills</a>
+    <a href="index.html#experience" onclick="closeMenu()">Experience</a>
+    <a href="index.html#testimonials" onclick="closeMenu()">Testimonials</a>
+    <a href="blog.html" onclick="closeMenu()">Blog</a>
+    <a href="index.html#contact" onclick="closeMenu()">Contact</a>
+  </div>
+
+  <!-- blog header -->
+  <div class="blog-header">
+    <h1>My Blog</h1>
+    <p>Stuff I've learned, tips I wish I knew earlier, and some career stories.</p>
+  </div>
+
+  <!-- category filter buttons -->
+  <div style="text-align: center; padding: 30px 20px 0;">
+    <button class="filter-btn active-filter" onclick="filterBlog('all', this)">All</button>
+    <button class="filter-btn" onclick="filterBlog('tutorial', this)">Tutorials</button>
+    <button class="filter-btn" onclick="filterBlog('tips', this)">Tips & Tricks</button>
+    <button class="filter-btn" onclick="filterBlog('career', this)">Career</button>
+    <button class="filter-btn" onclick="filterBlog('tools', this)">Tools</button>
+  </div>
+
+  <!-- blog posts grid -->
+  <div class="blog-grid">
+
+    <div class="blog-card" data-cat="tutorial">
+      <a href="blog-post.html">
+        <img src="https://picsum.photos/seed/blog1/400/200" alt="CSS Grid post" />
+      </a>
+      <div class="blog-card-body">
+        <span class="blog-cat">Tutorial</span>
+        <h2><a href="blog-post.html">CSS Grid in 10 Minutes – A Beginner's Guide</a></h2>
+        <p>CSS Grid changed how I build layouts. Here I walk through the basics with real code examples.</p>
+        <small>&#128197; March 12, 2026</small><br /><br />
+        <a href="blog-post.html" class="btn" style="font-size:13px; padding: 7px 16px;">Read More</a>
+      </div>
+    </div>
+
+    <div class="blog-card" data-cat="tips">
+      <a href="#">
+        <img src="https://picsum.photos/seed/blog2/400/200" alt="JS tips post" />
+      </a>
+      <div class="blog-card-body">
+        <span class="blog-cat">Tips &amp; Tricks</span>
+        <h2><a href="#">5 JavaScript Tricks That Saved Me Hours</a></h2>
+        <p>Some JS patterns I wish I knew earlier. Small things that made a big difference.</p>
+        <small>&#128197; February 28, 2026</small><br /><br />
+        <a href="#" class="btn" style="font-size:13px; padding: 7px 16px;">Read More</a>
+      </div>
+    </div>
+
+    <div class="blog-card" data-cat="career">
+      <a href="#">
+        <img src="https://picsum.photos/seed/blog3/400/200" alt="first job post" />
+      </a>
+      <div class="blog-card-body">
+        <span class="blog-cat">Career</span>
+        <h2><a href="#">How I Got My First Dev Job with No Experience</a></h2>
+        <p>My honest story of job hunting, rejections, and what finally worked.</p>
+        <small>&#128197; February 10, 2026</small><br /><br />
+        <a href="#" class="btn" style="font-size:13px; padding: 7px 16px;">Read More</a>
+      </div>
+    </div>
+
+    <div class="blog-card" data-cat="tools">
+      <a href="#">
+        <img src="https://picsum.photos/seed/blog4/400/200" alt="VS Code post" />
+      </a>
+      <div class="blog-card-body">
+        <span class="blog-cat">Tools</span>
+        <h2><a href="#">My Top VS Code Extensions for Web Dev</a></h2>
+        <p>The extensions I actually use every day that make coding faster and less painful.</p>
+        <small>&#128197; January 25, 2026</small><br /><br />
+        <a href="#" class="btn" style="font-size:13px; padding: 7px 16px;">Read More</a>
+      </div>
+    </div>
+
+    <div class="blog-card" data-cat="tutorial">
+      <a href="#">
+        <img src="https://picsum.photos/seed/blog5/400/200" alt="responsive post" />
+      </a>
+      <div class="blog-card-body">
+        <span class="blog-cat">Tutorial</span>
+        <h2><a href="#">Building Responsive Layouts Without a Framework</a></h2>
+        <p>Flexbox and Grid are powerful enough without Bootstrap. Here's how I do it.</p>
+        <small>&#128197; January 8, 2026</small><br /><br />
+        <a href="#" class="btn" style="font-size:13px; padding: 7px 16px;">Read More</a>
+      </div>
+    </div>
+
+    <div class="blog-card" data-cat="tips">
+      <a href="#">
+        <img src="https://picsum.photos/seed/blog6/400/200" alt="git post" />
+      </a>
+      <div class="blog-card-body">
+        <span class="blog-cat">Tips &amp; Tricks</span>
+        <h2><a href="#">Git Commands I Use Every Day</a></h2>
+        <p>Git is confusing at first. Here are the commands I use all the time and what they actually do.</p>
+        <small>&#128197; December 20, 2025</small><br /><br />
+        <a href="#" class="btn" style="font-size:13px; padding: 7px 16px;">Read More</a>
+      </div>
+    </div>
+
+  </div><!-- end blog-grid -->
+
+  <!-- footer -->
+  <div class="footer">
+    <p>Made by Jason Carter &copy; 2026</p>
+    <p><a href="index.html" style="color:#aaa;">&#8592; Back to Portfolio</a></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHUMBUSHO Emmanuel-Portfolio</title>
+  <meta name="description" content="SHUMBUSHO Emmanuel web developer portfolio" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+</head>
+<body id="body">
+
+  <!-- navigation bar -->
+  <div class="navbar">
+    <div class="logo">SHUMBUSHO Emmanuel</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="blog.html">Blog</a>
+      <a href="#contact">Contact</a>
+
+    </div>
+    <!-- hamburger button for mobile -->
+    <button class="hamburger" onclick="openMenu()">&#9776;</button>
+  </div>
+
+  <!-- mobile menu (hidden by default) -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="closeMenu()">Home</a>
+    <a href="#about" onclick="closeMenu()">About</a>
+    <a href="#projects" onclick="closeMenu()">Projects</a>
+    <a href="#skills" onclick="closeMenu()">Skills</a>
+    <a href="#experience" onclick="closeMenu()">Experience</a>
+    <a href="#testimonials" onclick="closeMenu()">Testimonials</a>
+    <a href="blog.html" onclick="closeMenu()">Blog</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+  </div>
+
+  <!-- ===== HOME / HERO ===== -->
+  <div class="hero" id="home">
+    <p style="font-size: 18px; color: #ccc;">Hi, my name is</p>
+    <h1>SHUMBUSHO Emmanuel</h1>
+    <h2>Front-End Developer & UI Designer</h2>
+    <p>I build websites and make them look nice. I like clean code and good design.</p>
+    <br />
+    <a href="#projects" class="btn">See My Work</a>
+    <a href="#contact" class="btn btn-white">Contact Me</a>
+  </div>
+
+  <!-- ===== ABOUT ===== -->
+  <div class="section" id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-box">
+      <div>
+        <!-- using a placeholder image -->
+        <img src="image1.jpg" alt="shumbusho photo" class="profile-img" />
+        <br />
+        <a href="assets/shumbusho-cv.pdf" download class="btn" style="margin-top: 10px;">Download CV</a>
+      </div>
+      <div class="about-text">
+        <h3>Hey! I'm SHUMBUSHO Emmanuel</h3>
+        <p>I'm a front-end developer with about 3 years of experience. I love working on websites and making sure they work well on all devices.</p>
+        <p>When I'm not coding I like singing and reading tech blogs.</p>
+        <br />
+        <p><strong>Skills I know:</strong></p>
+        <div class="tag-list">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">React</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Figma</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PROJECTS ===== -->
+  <div class="section gray-bg" id="projects">
+    <h2 class="section-title">My Projects</h2>
+    <p style="text-align:center; color:#666;">Click on a project card to see more info</p>
+    <br />
+
+    <!-- filter buttons -->
+    <div style="text-align: center; margin-bottom: 20px;">
+      <button class="filter-btn active-filter" onclick="filterProjects('all', this)">All</button>
+      <button class="filter-btn" onclick="filterProjects('frontend', this)">Frontend</button>
+      <button class="filter-btn" onclick="filterProjects('fullstack', this)">Full Stack</button>
+      <button class="filter-btn" onclick="filterProjects('design', this)">Design</button>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="project-card" data-cat="frontend" onclick="showModal('Weather App', 'A weather app using the OpenWeather API. Shows current weather and a 5 day forecast. Built with HTML, CSS and JavaScript.', 'https://picsum.photos/seed/proj1/500/280')">
+        <img src="https://picsum.photos/seed/proj1/400/200" alt="Weather App" />
+        <div class="card-body">
+          <span class="tag">Frontend</span>
+          <h3>Weather App</h3>
+          <p>Shows weather and forecasts using the OpenWeather API.</p>
+          <div style="margin-top: 10px;">
+            <a href="#" onclick="event.stopPropagation()">Live</a> &nbsp;|&nbsp;
+            <a href="#" onclick="event.stopPropagation()">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="fullstack" onclick="showModal('Task Manager', 'A full stack to-do app with login, drag and drop and a Node.js backend. Uses MongoDB to save tasks.', 'https://picsum.photos/seed/proj2/500/280')">
+        <img src="https://picsum.photos/seed/proj2/400/200" alt="Task Manager" />
+        <div class="card-body">
+          <span class="tag">Full Stack</span>
+          <h3>Task Manager</h3>
+          <p>Full stack to-do app with login and drag and drop.</p>
+          <div style="margin-top: 10px;">
+            <a href="#" onclick="event.stopPropagation()">Live</a> &nbsp;|&nbsp;
+            <a href="#" onclick="event.stopPropagation()">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="design" onclick="showModal('E-Commerce UI', 'A Figma design for an online shop. Has product pages, a cart and a checkout screen.', 'https://picsum.photos/seed/proj3/500/280')">
+        <img src="https://picsum.photos/seed/proj3/400/200" alt="E-Commerce UI" />
+        <div class="card-body">
+          <span class="tag">Design</span>
+          <h3>E-Commerce UI</h3>
+          <p>Figma design for an online store with cart and checkout.</p>
+          <div style="margin-top: 10px;">
+            <a href="#" onclick="event.stopPropagation()">Preview</a> &nbsp;|&nbsp;
+            <a href="#" onclick="event.stopPropagation()">Figma</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="frontend" onclick="showModal('Quiz Game', 'A quiz game that fetches questions from an API. Has a timer and saves your high score to localStorage.', 'https://picsum.photos/seed/proj4/500/280')">
+        <img src="https://picsum.photos/seed/proj4/400/200" alt="Quiz Game" />
+        <div class="card-body">
+          <span class="tag">Frontend</span>
+          <h3>Quiz Game</h3>
+          <p>A timed quiz game with score tracking and a leaderboard.</p>
+          <div style="margin-top: 10px;">
+            <a href="#" onclick="event.stopPropagation()">Live</a> &nbsp;|&nbsp;
+            <a href="#" onclick="event.stopPropagation()">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="fullstack" onclick="showModal('Blog CMS', 'A simple content management system for blog posts. Built with Node.js and Express.', 'https://picsum.photos/seed/proj5/500/280')">
+        <img src="https://picsum.photos/seed/proj5/400/200" alt="Blog CMS" />
+        <div class="card-body">
+          <span class="tag">Full Stack</span>
+          <h3>Blog CMS</h3>
+          <p>A CMS for managing blog posts with categories and tags.</p>
+          <div style="margin-top: 10px;">
+            <a href="#" onclick="event.stopPropagation()">Live</a> &nbsp;|&nbsp;
+            <a href="#" onclick="event.stopPropagation()">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="design" onclick="showModal('Portfolio Design', 'The Figma design for this portfolio site before I coded it up.', 'https://picsum.photos/seed/proj6/500/280')">
+        <img src="https://picsum.photos/seed/proj6/400/200" alt="Portfolio Design" />
+        <div class="card-body">
+          <span class="tag">Design</span>
+          <h3>Portfolio Design</h3>
+          <p>The Figma prototype I made before building this site.</p>
+          <div style="margin-top: 10px;">
+            <a href="#" onclick="event.stopPropagation()">Preview</a> &nbsp;|&nbsp;
+            <a href="#" onclick="event.stopPropagation()">Figma</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- project modal popup -->
+  <div id="modal" style="display:none;" class="modal-bg" onclick="closeModal()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button onclick="closeModal()" style="float:right; font-size:18px; background:none; border:none; cursor:pointer;">X</button>
+      <img id="modal-img" src="" alt="" style="width:100%; border-radius:8px; margin-bottom:10px;" />
+      <h3 id="modal-title"></h3>
+      <p id="modal-desc"></p>
+    </div>
+  </div>
+
+  <!-- ===== SKILLS ===== -->
+  <div class="section" id="skills">
+    <h2 class="section-title">My Skills</h2>
+
+    <div class="skills-wrapper">
+
+      <!-- frontend skills -->
+      <div class="skills-box">
+        <h3>Frontend</h3>
+        <p>HTML &amp; CSS</p>
+        <div class="bar-bg"><div class="bar-fill" style="width: 90%;">90%</div></div>
+        <p>JavaScript</p>
+        <div class="bar-bg"><div class="bar-fill" style="width: 80%;">80%</div></div>
+        <p>React</p>
+        <div class="bar-bg"><div class="bar-fill" style="width: 70%;">70%</div></div>
+      </div>
+
+      <!-- backend skills -->
+      <div class="skills-box">
+        <h3>Backend</h3>
+        <p>Node.js</p>
+        <div class="bar-bg"><div class="bar-fill" style="width: 65%;">65%</div></div>
+        <p>Express</p>
+        <div class="bar-bg"><div class="bar-fill" style="width: 60%;">60%</div></div>
+        <p>MongoDB</p>
+        <div class="bar-bg"><div class="bar-fill" style="width: 55%;">55%</div></div>
+      </div>
+
+      <!-- design skills -->
+      <div class="skills-box">
+        <h3>Design</h3>
+        <p>Figma</p>
+        <div class="bar-bg"><div class="bar-fill" style="width: 75%;">75%</div></div>
+        <p>UI/UX</p>
+        <div class="bar-bg"><div class="bar-fill" style="width: 70%;">70%</div></div>
+        <p>Adobe XD</p>
+        <div class="bar-bg"><div class="bar-fill" style="width: 50%;">50%</div></div>
+      </div>
+
+    </div>
+
+    <br />
+    <h3 style="text-align:center;">Other Tools</h3>
+    <div class="tag-list" style="justify-content:center;">
+      <span class="tag">Git</span>
+      <span class="tag">GitHub</span>
+      <span class="tag">VS Code</span>
+      <span class="tag">Postman</span>
+      <span class="tag">Bootstrap</span>
+      <span class="tag">Tailwind CSS</span>
+      <span class="tag">REST APIs</span>
+      <span class="tag">npm</span>
+    </div>
+  </div>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <div class="section gray-bg" id="experience">
+    <h2 class="section-title">Experience &amp; Education</h2>
+
+    <ul class="timeline-list">
+
+      <li class="timeline-item">
+        <span class="timeline-date">2024 - Present</span>
+        <h3>Junior Front-End Developer</h3>
+        <h4>TechNova Solutions, New York</h4>
+        <p>Building and maintaining client websites. Improved page load speed by 40% and redesigned the main dashboard.</p>
+      </li>
+
+      <li class="timeline-item">
+        <span class="timeline-date">2023 - 2024</span>
+        <h3>Web Development Intern</h3>
+        <h4>PixelCraft Agency, Remote</h4>
+        <p>Helped build landing pages and marketing sites. Learned a lot about responsive design.</p>
+      </li>
+
+      <li class="timeline-item">
+        <span class="timeline-date">2022 - 2023</span>
+        <h3>Freelance Web Developer</h3>
+        <h4>Self-employed</h4>
+        <p>Built websites for small local businesses. Managed everything from design to going live.</p>
+      </li>
+
+      <li class="timeline-item">
+        <span class="timeline-date">2019 - 2023</span>
+        <h3>B.Sc. Computer Science</h3>
+        <h4>State University of New York</h4>
+        <p>Graduated with honors. Joined coding clubs and took part in hackathons.</p>
+      </li>
+
+    </ul>
+  </div>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <div class="section" id="testimonials">
+    <h2 class="section-title">What People Say</h2>
+
+    <div class="cards-row">
+
+      <div class="testi-card">
+        <img src="https://i.pravatar.cc/60?img=5" alt="Sarah M." class="testi-avatar" />
+        <p>"SHUMBUSHO built our company website and it looked amazing. He communicated well and delivered on time!"</p>
+        <br />
+        <strong>Sarah M.</strong><br />
+        <small>CEO, BrightLeaf Co.</small>
+      </div>
+
+      <div class="testi-card">
+        <img src="https://i.pravatar.cc/60?img=12" alt="David K." class="testi-avatar" />
+        <p>"SHUMBUSHO is a quick learner and always brings fresh ideas. Our app UI really improved with his help."</p>
+        <br />
+        <strong>David K.</strong><br />
+        <small>Lead Dev, TechNova</small>
+      </div>
+
+      <div class="testi-card">
+        <img src="https://i.pravatar.cc/60?img=20" alt="Priya L." class="testi-avatar" />
+        <p>"SHUMBUSHO redesigned our landing page and conversions went up by 25%. He really gets user experience."</p>
+        <br />
+        <strong>Priya L.</strong><br />
+        <small>Marketing, GrowthHub</small>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== AI RECOMMENDATION ===== -->
+  <div class="section gray-bg" id="ai-rec">
+    <h2 class="section-title">AI Project Recommendations</h2>
+    <p style="text-align:center;">Tell me what you're interested in and I'll suggest relevant projects!</p>
+    <br />
+
+    <div style="text-align: center;">
+      <label for="interest-select"><strong>I'm interested in:</strong></label>
+      <br /><br />
+      <select id="interest-select" style="padding: 10px; font-size: 16px; border-radius: 6px; border: 1px solid #ccc;">
+        <option value="">-- pick one --</option>
+        <option value="frontend">Frontend Development</option>
+        <option value="backend">Backend / APIs</option>
+        <option value="design">UI/UX Design</option>
+        <option value="mobile">Mobile-Friendly Sites</option>
+        <option value="performance">Performance</option>
+      </select>
+      <br /><br />
+      <button class="btn" onclick="getRecommendation()">Get Recommendation</button>
+    </div>
+
+    <br />
+    <div id="ai-result" style="display:none;" class="ai-result-box">
+      <p id="ai-result-text"></p>
+    </div>
+  </div>
+
+  <!-- ===== CONTACT ===== -->
+  <div class="section" id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <p style="text-align:center; color:#666;">Have a project in mind? Let's talk!</p>
+    <br />
+
+    <div class="contact-wrapper">
+
+      <div class="contact-info">
+        <p>&#128231; shumbushoemmy@gmail.com</p>
+        <p>&#128205; Kigali, Rwanda</p>
+        <p>&#128336; Available Mon–Fri, 9am–6pm</p>
+        <br />
+        <p><strong>Find me on:</strong></p>
+        <div class="social-row">
+          <a href="#" class="social-btn">GitHub</a>
+          <a href="#" class="social-btn">LinkedIn</a>
+          <a href="#" class="social-btn">Twitter</a>
+        </div>
+      </div>
+
+      <div>
+        <form id="contact-form">
+          <div class="form-row">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="John Doe" />
+            <span id="name-err" class="err-msg"></span>
+          </div>
+          <div class="form-row">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" placeholder="john@example.com" />
+            <span id="email-err" class="err-msg"></span>
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Hello SHUMBUSHO..."></textarea>
+            <span id="msg-err" class="err-msg"></span>
+          </div>
+          <button type="button" class="btn" onclick="sendMessage()">Send Message</button>
+          <p id="success-msg" style="display:none; color:green; margin-top:10px;">
+            Message sent! I'll get back to you soon.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="footer">
+    <p>Made by SHUMBUSHO Emmanuel &copy; 2026</p>
+    <p><a href="#home" style="color:#aaa;">Back to top ↑</a></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

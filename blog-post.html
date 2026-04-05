@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Grid in 10 Minutes - Jason Carter Blog</title>
+  <meta name="description" content="A beginner guide to CSS Grid by Jason Carter" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body id="body">
+
+  <!-- navbar -->
+  <div class="navbar">
+    <div class="logo">Jason Carter</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#testimonials">Testimonials</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#contact">Contact</a>
+
+    </div>
+    <button class="hamburger" onclick="openMenu()">&#9776;</button>
+  </div>
+
+  <!-- mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="closeMenu()">Home</a>
+    <a href="index.html#about" onclick="closeMenu()">About</a>
+    <a href="blog.html" onclick="closeMenu()">Blog</a>
+    <a href="index.html#contact" onclick="closeMenu()">Contact</a>
+  </div>
+
+  <!-- post content -->
+  <div class="post-page" style="margin-top: 30px;">
+
+    <img
+      src="https://picsum.photos/seed/blog1/800/400"
+      alt="CSS Grid post cover"
+      class="hero-img"
+    />
+
+    <span class="blog-cat">Tutorial</span>
+    <h1>CSS Grid in 10 Minutes – A Beginner's Guide</h1>
+    <p class="post-meta">
+      By <strong>Jason Carter</strong> &nbsp;|&nbsp; &#128197; March 12, 2026
+    </p>
+
+    <p>
+      CSS Grid is one of my favorite things in CSS. When I first saw it I thought it looked complicated,
+      but once I started using it I realized it was actually really simple. Let me show you the basics.
+    </p>
+
+    <h2>What is CSS Grid?</h2>
+    <p>
+      CSS Grid is a layout system that works in two directions at once — rows and columns.
+      Unlike Flexbox which is mostly one direction, Grid lets you control both at the same time.
+      Think of it like a spreadsheet for your webpage.
+    </p>
+
+    <h2>Setting Up a Grid</h2>
+    <p>
+      All you need to do is add <code>display: grid</code> to a parent element.
+      Then you use <code>grid-template-columns</code> to say how many columns you want.
+    </p>
+
+    <pre><code>.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 equal columns */
+  gap: 20px; /* space between the items */
+}</code></pre>
+
+    <p>
+      The <code>fr</code> unit means "fraction of the available space".
+      So <code>1fr 1fr 1fr</code> just means three equal columns. That's it!
+    </p>
+
+    <h2>The Auto-Fill Trick (This is the one I use most)</h2>
+    <p>
+      This one line of CSS makes a responsive grid with no media queries:
+    </p>
+
+    <pre><code>.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}</code></pre>
+
+    <p>
+      This creates as many columns as will fit on screen, and each one is at least 250px wide.
+      On a phone you get 1 column. On a tablet maybe 2. On desktop maybe 3 or 4.
+      No breakpoints needed! This is how I made the project cards on my portfolio.
+    </p>
+
+    <h2>Placing Items at Specific Spots</h2>
+    <p>
+      You can also tell a specific item exactly where to sit using <code>grid-column</code>:
+    </p>
+
+    <pre><code>.big-item {
+  grid-column: 1 / 3; /* starts at column line 1, ends at line 3 (spans 2 columns) */
+}</code></pre>
+
+    <h2>Quick Summary</h2>
+    <ul>
+      <li>Add <code>display: grid</code> to the parent</li>
+      <li>Use <code>grid-template-columns</code> to define your columns</li>
+      <li>Use <code>gap</code> for the space between items</li>
+      <li>Use <code>auto-fill</code> + <code>minmax</code> for responsive layouts</li>
+      <li>Use <code>grid-column</code> to place items manually</li>
+    </ul>
+
+    <p>
+      My advice: just go build a card grid right now. That's how CSS Grid clicked for me.
+      Don't just read about it — type it out and play with the numbers!
+    </p>
+
+    <br />
+    <a href="blog.html" class="btn">&larr; Back to Blog</a>
+
+  </div><!-- end post-page -->
+
+  <!-- comments section -->
+  <div class="comments-area">
+    <h3>Comments (<span id="comment-count">0</span>)</h3>
+
+    <!-- list of existing comments -->
+    <div id="comments-list"></div>
+
+    <!-- add a comment form -->
+    <h4 style="margin-bottom: 14px;">Leave a Comment</h4>
+    <div class="form-row" style="max-width: 500px;">
+      <label for="comment-name">Your Name</label>
+      <input type="text" id="comment-name" placeholder="Your name" />
+    </div>
+    <div class="form-row" style="max-width: 500px;">
+      <label for="comment-text">Comment</label>
+      <textarea id="comment-text" rows="4" placeholder="What do you think?"></textarea>
+    </div>
+    <span id="comment-err" style="color: red; font-size: 13px;"></span>
+    <br />
+    <button class="btn" onclick="postComment()" style="margin-top: 10px;">Post Comment</button>
+  </div>
+
+  <!-- footer -->
+  <div class="footer">
+    <p>Made by Jason Carter &copy; 2026</p>
+    <p><a href="blog.html" style="color:#aaa;">&#8592; Back to Blog</a></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
